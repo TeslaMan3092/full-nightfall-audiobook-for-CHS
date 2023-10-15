@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elie Wiesel - Night - Full Audiobook</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="imgs-icons/favcon.png" type="image">
+</head>
+
+<body onload="updateeverything()">
+    <img src="https://cdn.glitch.global/71c72a42-31b5-4f4b-af2f-37ab18c03e06/b41FJxRC6u2L.webp?v=1697083281911"
+        id="bgimg" alt="">
+
+    <div class="maincont">
+
+
+        <div class="chap">
+            <div class="mainchapcont">
+                <div class="chapterstitle">
+                    <h3>Chapters</h3>
+                </div>
+
+                <div class="acchapters">
+                    <ul id="chapterul" class="justcontent">
+                        <ul id="chapterul" class="justcontent">
+                            <div class="chapbuts hover" id="chap1"
+                                onclick="playChapter(1); createPopup('Now playing chapter 1');">
+                                <p><b>Chapter 1</b> - Pages 3-22 (0:05)</p>
+                                <bg class="chadivter-divrogress" id="chadivter1-divrogress"></bg>
+                            </div>
+
+                            <div class="chapbuts hover" id="chap2"
+                                onclick="playChapter(2); createPopup('Now playing chapter 2');">
+                                <p><b>Chapter 2</b> - Pages 23-28 (38:11)</p>
+                                <bg class="chadivter-divrogress" id="chadivter2-divrogress"></bg>
+                            </div>
+
+                            <div class="chapbuts hover" id="chap3"
+                                onclick="playChapter(3); createPopup('Now playing chapter 3');">
+                                <p><b>Chapter 3</b> - Pages 29-46 (48:53)</p>
+                                <bg class="chadivter-divrogress" id="chadivter3-divrogress"></bg>
+                            </div>
+
+                            <div class="chapbuts hover" id="chap4"
+                                onclick="playChapter(4); createPopup('Now playing chapter 4');">
+                                <p><b>Chapter 4</b> - Pages 47-65 (1:22:51)</p>
+                                <bg class="chadivter-divrogress" id="chadivter4-divrogress"></bg>
+                            </div>
+
+                            <div class="chapbuts hover" id="chap5"
+                                onclick="playChapter(5); createPopup('Now playing chapter 5');">
+                                <p><b>Chapter 5</b> - Pages 66-84 (1:56:05)</p>
+                                <bg class="chadivter-divrogress" id="chadivter5-divrogress"></bg>
+                            </div>
+
+                            <div class="chapbuts hover" id="chap6"
+                                onclick="playChapter(6); createPopup('Now playing chapter 6');">
+                                <p><b>Chapter 6</b> - Pages 85-97 (2:30:37)</p>
+                                <bg class="chadivter-divrogress" id="chadivter6-divrogress"></bg>
+                            </div>
+
+                            <div class="chapbuts hover" id="chap7"
+                                onclick="playChapter(7); createPopup('Now playing chapter 7');">
+                                <p><b>Chapter 7</b> - Pages 98-103 (2:54:32)</p>
+                                <bg class="chadivter-divrogress" id="chadivter7-divrogress"></bg>
+                            </div>
+
+                            <div class="chapbuts hover" id="chap8" style="min-height: 22px;"
+                                onclick="playChapter(8); createPopup('Now playing chapter 8');">
+                                <p><b>Chapter 8</b> - Pages 104-112 (3:04:38)</p>
+                                <bg class="chadivter-divrogress" id="chadivter8-divrogress"></bg>
+                            </div>
+
+                            <div class="chapbuts hover" id="chap9"
+                                onclick="playChapter(9); createPopup('Now playing chapter 9');">
+                                <p><b>Chapter 9</b> - Pages 113-115 (3:19:32)</p>
+                                <bg class="chadivter-divrogress" id="chadivter9-divrogress"></bg>
+                            </div>
+
+                            <div class="chapbuts" id="playpasue-adormin5sec" style="min-height: 30px;">
+                                <div class="ppcont">
+                                    <div>
+                                        <img src="/imgs-icons/rewind-5-seconds-back-svgrepo-com.svg"
+                                            onclick="skipBackward(this)" alt="go back 5 seconds">
+                                    </div>
+                                    <div class="ppcont">
+                                        <img id="ppbutton" onclick="togglePlayPause(this)"
+                                            src="/imgs-icons/play-1000-svgrepo-com.svg" alt="pause play buton">
+                                    </div>
+                                    <div>
+                                        <img class="rotaterewind"
+                                            src="/imgs-icons/rewind-5-seconds-forward-svgrepo-com.svg"
+                                            onclick="skipForward(this)" alt="go forawrd 5 seconds">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>Elie Wiesel - Night</div>
+                        </ul>
+                    </ul>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="video">
+            <div id="vidcont">
+                <div id="player"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+
+        </div>
+    </footer>
+    <script>
+        function skipForward(element) {
+            const currentTime = player.getCurrentTime(element);
+            const newTime = currentTime + 5;
+            element.classList.add('rotaterewind');
+            setTimeout(function () {
+                element.classList.remove('rotaterewind');
+
+            }, 300);
+            player.seekTo(newTime, true);
+            updateeverything();
+        }
+
+        function skipBackward(element) {
+            const currentTime = player.getCurrentTime();
+
+            const newTime = currentTime - 5;
+            player.seekTo(newTime, true);
+            element.classList.add('bakcwardrotte');
+            element.style
+            setTimeout(function () {
+                element.classList.remove('bakcwardrotte');
+
+            }, 300);
+            updateeverything();
+
+        }
+        function togglePlayPause(element) {
+
+            if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+                player.pauseVideo();
+                element.setAttribute('src', '/imgs-icons/play-1000-svgrepo-com.svg')
+            } else {
+                player.playVideo();
+                element.setAttribute('src', '/imgs-icons/pause-1006-svgrepo-com.svg')
+
+            }
+        }
+
+        function updateppsfb() {
+            const ppbut = document.getElementById('ppbutton');
+            if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+                ppbut.setAttribute('src', '/imgs-icons/pause-1006-svgrepo-com.svg')
+            } else {
+                ppbut.setAttribute('src', '/imgs-icons/play-1000-svgrepo-com.svg')
+            }
+        }
+    </script>
+    <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                heigth: '100%',
+                width: '100%',
+                videoId: 'zEKtHbS0YJ4', 
+                playerVars: {
+                    'playsinline': 1
+                },
+                events: {
+                    onReady: onPlayerReady,
+                    onStateChange: onPlayerStateChange
+                }
+            });
+        }
+
+        const chapters = [
+            { title: 'Chapter 1', time: 5, description: 'Pages 3-22', num: '1', duration: 2285 },
+            { title: 'Chapter 2', time: 2291, description: 'Pages 23-28', num: '2', duration: 635 },
+            { title: 'Chapter 3', time: 2933, description: 'Pages 29-46', num: '3', duration: 2037 },
+            { title: 'Chapter 4', time: 4971, description: 'Pages 47-65', num: '4', duration: 1993 },
+            { title: 'Chapter 5', time: 6965, description: 'Pages 66-84', num: '5', duration: 2071 },
+            { title: 'Chapter 6', time: 9037, description: 'Pages 85-97', num: '6', duration: 1435 },
+            { title: 'Chapter 7', time: 10472, description: 'Pages 98-103', num: '7', duration: 606 },
+            { title: 'Chapter 8', time: 11078, description: 'Pages 104-112', num: '8', duration: 894 },
+            { title: 'Chapter 9', time: 11972, description: 'Pages 113-115', num: '9', duration: 894 },
+        ];
+
+        function onPlayerReady(event) {          
+            event.target.playVideo();
+            updateeverything()
+        }
+
+
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+                setInterval(function () {
+                    updateeverything()
+                }, 1000);
+            }
+        }
+        function updateeverything() {
+            updateprogressbar()
+            checkChapterTimes()
+            updateppsfb()
+            updatetitletochapter()
+        }
+
+        function checkChapterTimes() {
+            const currentTime = player.getCurrentTime();
+            const progressDivs = document.querySelectorAll('.chapbuts');
+            progressDivs.forEach(div => {
+                div.style.backgroundColor = null;
+            });
+
+            chapters.forEach((chapter) => {
+                if (currentTime >= chapter.time && currentTime < chapter.time + chapter.duration) {
+                    const currentProgressBar = document.getElementById(`chap${chapter.num}`);
+                    currentProgressBar.style.backgroundColor = 'rgba(255, 0, 0, 0.07)';
+                } else if (currentTime >= chapter.time + chapter.duration) {
+                    const currentProgressBar = document.getElementById(`chap${chapter.num}`);
+                    currentProgressBar.style.backgroundColor = 'rgba(0, 234, 0, 0.15)';
+                }
+            });
+        }
+
+        function playChapter(chapterIndex) {
+            const chapter = chapters[chapterIndex - 1];
+            player.seekTo(chapter.time, true);
+            createPopup(`Now playing ${chapter.title}`);
+            updateprogressbar();
+        }
+
+        function updateprogressbar() {
+            const curchap = getCurrentChapter();
+            const currentChapter = curchap.num;
+            const currentTime = player.getCurrentTime();
+            const curentprogbar = document.getElementById(`chadivter${currentChapter}-divrogress`);
+
+            const progress = (currentTime - curchap.time) / curchap.duration;
+            const progressDivs = document.querySelectorAll('.chadivter-divrogress');
+            progressDivs.forEach(div => {
+                div.style.width = '0%';
+            });
+
+            curentprogbar.style.width = `${progress * 100}%`;
+
+        }
+
+        function updatetitletochapter(){
+            const curchap = getCurrentChapter();
+            const currentChapter = curchap.title;
+            document.title = `${currentChapter} - Night - By Elie Wiesel `;
+        }
+    </script>
+
+    <script>
+        const currentTime = player.getCurrentTime();
+
+        function getCurrentChapter() {
+            const currentTime = player.getCurrentTime();
+            for (let i = 0; i < chapters.length; i++) {
+                if (currentTime < chapters[i].time) {
+                    return chapters[i - 1] || null;
+                }
+            }
+            return chapters[chapters.length - 1];
+        }
+    </script>
+
+    <script>
+        function createPopup(text) {
+            const progressDivs = document.querySelectorAll('.popup');
+            progressDivs.forEach(div => {
+                div.style.opacity = '0';
+            });
+            let el = document.createElement('DIV');
+            el.classList.add('popup');
+            el.innerHTML = '<b style="width:100%" text-aling: center;>' + text + '</b>';
+            document.body.appendChild(el);
+
+            setTimeout(() => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.remove();
+                }, 450);
+            }, 2000);
+        }
+    </script>
+
+</body>
+
+</html>

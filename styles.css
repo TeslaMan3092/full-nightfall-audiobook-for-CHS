@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap');
+
+* {
+    color: white;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+    overflow: hidden;
+}
+
+#bgimg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    filter: blur(40px);
+    -webkit-filter: blur(40px);
+    opacity: 0.5;
+    background-image: url(imgs-icons/b41FJxRC6u2L.webp);
+    object-fit: fill;
+    z-index: 0;
+}
+
+
+.notify {
+    border: none;
+    outline: none;
+    background: #262626;
+    padding: 15px 50px;
+    border-radius: 30px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.popup {
+    height: 20px;
+    width:120px;
+    position: fixed;
+    top:1dvb;
+    right: 50%;
+    transform: translate(50%, 0) scale(1);
+    background: #00000003;
+    background-color: rgba(0, 0, 0, 0.213);
+    padding: 15px 40px;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: #ffffff;
+    border-radius: 40px;
+    animation: popup 0.3s ease-in-out;
+    transition: all 0.45s ease;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes popup {
+
+
+    0% {
+        top: -40px;
+        transform: translate(50%, 0) scale(0.8);
+
+    }
+
+    100% {
+        top: 10px;
+        transform: translate(50%, 0) scale(1);
+
+    }
+}
+
+.maincont {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+
+.maincont .chap {
+    width: 335px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    height: 100%;
+}
+
+.mainchapcont {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.chapterstitle {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chapterstitle h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    animation: fadein 0.5s, ulaniminload 0.5s;
+}
+
+.acchapters {
+    height: calc(100% - 60px);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.chapter-progress {
+    background-color: rgba(255, 255, 255, 0.539);
+    position: absolute;
+}
+
+@media (max-height: 450px) {
+    .fjuscotcent {
+        justify-content: space-between !important;
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 730px) {
+    .maincont .chap {
+        width: 100%;
+        height: 670px;
+
+    }
+
+    .maincont {
+        flex-direction: column;
+    }
+
+    .video {
+        width: calc(100% - 20px) !important;
+        height:  auto!important;
+        top: 675px;
+        position: relative;
+        left: 0;
+    }
+    body{
+        overflow: auto;
+    }
+
+}
+
+.fjuscotcent {
+    justify-content: center;
+}
+
+.acchapters ul {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    gap: 10px;
+    padding-top: 10px;
+    overflow-y: auto;
+    animation: ulaniminload 0.5s;
+}
+
+@keyframes ulaniminload {
+    0% {
+        transform: scale(0.7);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeinp {
+    0% {
+        opacity: 0;
+
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.chapbuts {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    width: 270px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.071);
+    transition: all 0.45s ease;
+    -webkit-box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.75);
+    margin: 0 10px;
+    animation: fadein 0.6s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.acchapters ul div p {
+    animation: fadeinp 1s;
+}
+
+.hover:hover{
+    transition: transform 0.45s ease;
+}
+.hover:hover {
+    transform: scale(1.1);
+}
+
+.hover:active {
+    transform: scale(1.05);
+}
+
+.rotaterewind{
+    animation: fordreotate 0.3s;
+}
+.bakcwardrotte{
+    animation: backreotate 0.3s;
+}
+@keyframes fordreotate {
+    0%{
+        rotate: 0deg;
+      
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
+@keyframes backreotate {
+    0%{
+        rotate: 0deg;
+      
+    }
+    100%{
+        rotate: -360deg;
+    }
+}
+.chadivter-divrogress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(164, 164, 164, 0.566);
+    border-radius: 10px;
+    z-index: -1;
+    transition: all 0.45s ease;
+}
+
+.ppcont {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+.ppcont div{
+    height: 50px;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.333);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:auto;
+}
+.ppcont img{
+    width: auto;
+    height: 60%;
+    cursor:pointer;
+
+}
+
+.maincont .video {
+    position: absolute;
+    right: 0;
+    width: calc(100% - 355px);
+    height: calc(100% - 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+#vidcont {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+#player {
+    border-radius: 20px;
+    height: 100%;
+}
