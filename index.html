@@ -82,16 +82,16 @@
                             <div class="chapbuts" id="playpasue-adormin5sec" style="min-height: 30px;">
                                 <div class="ppcont">
                                     <div>
-                                        <img src="/imgs-icons/rewind-5-seconds-back-svgrepo-com.svg"
+                                        <img src="imgs-icons/rewind-5-seconds-back-svgrepo-com.svg"
                                             onclick="skipBackward(this)" alt="go back 5 seconds">
                                     </div>
                                     <div class="ppcont">
                                         <img id="ppbutton" onclick="togglePlayPause(this)"
-                                            src="/imgs-icons/play-1000-svgrepo-com.svg" alt="pause play buton">
+                                            src="imgs-icons/play-1000-svgrepo-com.svg" alt="pause play buton">
                                     </div>
                                     <div>
                                         <img class="rotaterewind"
-                                            src="/imgs-icons/rewind-5-seconds-forward-svgrepo-com.svg"
+                                            src="imgs-icons/rewind-5-seconds-forward-svgrepo-com.svg"
                                             onclick="skipForward(this)" alt="go forawrd 5 seconds">
                                     </div>
                                 </div>
@@ -150,10 +150,10 @@
 
             if (player.getPlayerState() === YT.PlayerState.PLAYING) {
                 player.pauseVideo();
-                element.setAttribute('src', '/imgs-icons/play-1000-svgrepo-com.svg')
+                element.setAttribute('src', 'imgs-icons/play-1000-svgrepo-com.svg')
             } else {
                 player.playVideo();
-                element.setAttribute('src', '/imgs-icons/pause-1006-svgrepo-com.svg')
+                element.setAttribute('src', 'imgs-icons/pause-1006-svgrepo-com.svg')
 
             }
         }
@@ -161,9 +161,9 @@
         function updateppsfb() {
             const ppbut = document.getElementById('ppbutton');
             if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-                ppbut.setAttribute('src', '/imgs-icons/pause-1006-svgrepo-com.svg')
+                ppbut.setAttribute('src', 'imgs-icons/pause-1006-svgrepo-com.svg')
             } else {
-                ppbut.setAttribute('src', '/imgs-icons/play-1000-svgrepo-com.svg')
+                ppbut.setAttribute('src', 'imgs-icons/play-1000-svgrepo-com.svg')
             }
         }
     </script>
